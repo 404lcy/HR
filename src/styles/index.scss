@@ -3,6 +3,7 @@
 @import './transition.scss';
 @import './element-ui.scss';
 @import './sidebar.scss';
+@import './common.scss';
 
 body {
   height: 100%;
@@ -38,7 +39,7 @@ a:active {
 
 a,
 a:focus,
-a:hover {
+a:hover { 
   cursor: pointer;
   color: inherit;
   text-decoration: none;
@@ -58,7 +59,27 @@ div:focus {
     height: 0;
   }
 }
-
+.app-breadcrumb {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 50px;
+  margin-left: 10px;
+  color: #ffffff;
+  cursor: text;
+  .breadBtn {
+    background: #84a9fe;
+    font-size: 14px;
+    padding: 0 10px;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    margin-left: 15px;
+  }
+}
+.navbar {
+  background-image: -webkit-linear-gradient(left, #3d6df8, #5b8cff);
+}
 // main-container global css
 .app-container {
   padding: 20px;

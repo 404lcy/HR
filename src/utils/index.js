@@ -115,3 +115,41 @@ export function param2Obj(url) {
   })
   return obj
 }
+// 树形结构
+export function transListToTree(list, rootValue) {
+  const arr = []
+  list.forEach((item) => {
+    if (item.pid === rootValue) {
+      const children = transListToTree(list, item.id)
+      if (children.length) {
+        item.children = children
+      }
+      arr.push(item)
+    }
+  })
+  return arr
+}
+// 第二种方式
+export function trtransListToTreeNew(list) {
+  // 构造好关系的树节点
+  const treeList = []
+
+  // 数组结构==》map映射表==》方便取数据不用遍历
+  const map = {}
+  list.forEach((item) => {
+    if (!item.children) {
+      item.children = []
+    }
+    map[item.id] = item
+  })
+  list.forEach(item => {
+    // 判断当前的遍历项是否有父节点
+    const parent = map[item.pid]
+    if (parent) {
+      parent.children.push(item)
+    } else {
+      treeList.push(item)
+    }
+  })
+  return treeList
+}
